@@ -18,7 +18,7 @@ public class JunitAssertThatTest {
 	@Before
 	public void init() {
 		tom = new User(20, "Tom");
-		john = new User(80, "John");
+		john = new User(60, "John");
 	}
 
 	@Test
