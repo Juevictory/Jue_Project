@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	 http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+     http://www.springframework.org/schema/context 
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+     http://www.springframework.org/schema/p
+     http://www.springframework.org/schema/p.xsd
+     http://www.springframework.org/schema/tx 
+     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<bean id="boss" class="com.baobaotao.reflect.Boss" scope="singleton">
+		<constructor-arg type="String">
+			<value>Jue</value>
+		</constructor-arg>
+		<property name="name" value="Lynn"></property>
+		<constructor-arg>
+			<ref bean="car" />
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="office" />
+		</constructor-arg>
+	</bean>
+	<bean id="car" class="com.baobaotao.reflect.Car" p:masSpeed="100">
+		<property name="brand">
+			<value>红旗</value>
+		</property>
+		<property name="color" value="黑"></property>
+	</bean>
+	<bean id="office" class="com.baobaotao.reflect.Office" p:officeID="000001">
+	</bean>
+
+	<bean id="boss1" class="com.baobaotao.reflect.Boss" scope="singleton">
+		<property name="car.brand" value="QQ"></property>
+		<property name="car.color" value="red"></property>
+		<property name="office.officeID" value="10001"></property>
+	</bean>
+</beans>
